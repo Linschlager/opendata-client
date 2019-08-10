@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "apollo-client": "^2.6.3",
+    "jest": "^24.8.0",
+    "parcel": "^1.12.3",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
+  },
+  "name": "odc-app",
+  "version": "1.0.0",
+  "description": "React app to visualize the GraphQL API",
+  "main": "index.js",
+  "repository": "https://github.com/Linschlager/opendata-client",
+  "author": "Linus Vettiger",
+  "license": "MIT",
+  "private": true
+}
