@@ -1,0 +1,14 @@
+{
+  "name": "odc-server",
+  "version": "1.0.0",
+  "description": "GraphQL API to read from opendata.ch",
+  "main": "index.js",
+  "repository": "https://github.com/Linschlager/opendata-client",
+  "author": "Linus Vettiger",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "apollo-server-micro": "^2.8.1",
+    "graphql": "^14.4.2"
+  }
+}
