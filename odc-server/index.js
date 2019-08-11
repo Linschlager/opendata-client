@@ -1,4 +1,4 @@
-const { ApolloServer, gql } = require('apollo-server-micro');
+const { ApolloServer, gql } = require('apollo-server');
 const { fetchLocations } = require('./api');
 
 const typeDefs = gql`
@@ -41,6 +41,8 @@ const resolvers = {
 const server = new ApolloServer({
   typeDefs,
   resolvers,
+  playground: false,
+  cors: true
 });
 
-module.exports = server.createHandler();
+server.listen(3000);
