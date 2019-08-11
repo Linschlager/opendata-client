@@ -1,13 +1,15 @@
 {
   "dependencies": {
-    "@apollo/react-hooks": "^3.0.0",
+    "@apollo/react-hooks": "0.1.0-beta.12",
+    "apollo-boost": "^0.4.4",
     "apollo-client": "^2.6.4",
     "apollo-utilities": "^1.3.2",
-    "graphql": "^14.4.2",
+    "graphql": "^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0",
     "isomorphic-fetch": "^2.2.1",
     "parcel-bundler": "^1.12.3",
     "react": "^16.9.0",
-    "react-dom": "^16.9.0"
+    "react-dom": "^16.9.0",
+    "throttle-debounce": "^2.1.0"
   },
   "name": "odc-app",
   "version": "1.0.0",
@@ -18,8 +20,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "dev": "parcel watch index.html",
-    "start": "parcel index.html",
-    "serve": "parcel serve index.html"
+    "dev": "parcel serve index.html",
+    "start": "parcel index.html"
   }
 }
