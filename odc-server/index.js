@@ -2,30 +2,37 @@ const { ApolloServer, gql } = require('apollo-server-micro');
 const { fetchLocations } = require('./api');
 
 const typeDefs = gql`
-  type Coordinates {
-    type: String
-    x: Int
-    y: Int
-  }
-  type Location {
-    id: String
-    name: String
-    score: String
-    coordinate: Coordinates
-    distance: Int
-    icon: String
-  }
-  type Query {
-    stations: [Location]
-  }
+    # Used to filter station queries
+    enum Type {
+      all,
+      station,
+      poi,
+      address
+    }
+    type Coordinates {
+      type: String
+      x: Float
+      y: Float
+    }
+    type Location {
+      id: String
+      name: String
+      score: String
+      coordinate: Coordinates
+      distance: Float
+      icon: String
+    }
+    type Query {
+      stations(query: String, type: Type): [Location]
+    }
 `;
 
 const resolvers = {
   Query: {
-    stations: async (root, args, context) => {
-      const raw = await fetchLocations('Basel', 'ALL');
+    stations: async (root, args) => {
+      console.log(args);
+      const raw = await fetchLocations(args.query, args.type);
       const result = await raw.json();
-      console.log(result);
       return result.stations;
     }
   }
