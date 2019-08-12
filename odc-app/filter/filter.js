@@ -5,7 +5,7 @@ const Filter = ({ options, onChange }) => {
    <select onChange={onChange}>
      <option defaultChecked disabled>Choose a Location Type</option>
      {
-       options.map(o => <option value={o}>{o.toUpperCase()}</option>)
+       options.map(o => <option key={o} value={o}>{o.toUpperCase()}</option>)
      }
    </select>
   );

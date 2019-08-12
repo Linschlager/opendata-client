@@ -44489,7 +44489,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var Header = function Header(_ref) {
   var keys = _ref.keys;
   return _react.default.createElement("thead", null, _react.default.createElement("tr", null, keys.map(function (k) {
-    return _react.default.createElement("th", null, k);
+    return _react.default.createElement("th", {
+      key: k
+    }, k);
   })));
 };
 
@@ -44501,7 +44503,9 @@ var Body = function Body(_ref2) {
       key: row.id
     }, keys.map(function (key, keyIndex) {
       if (key === "coordinate") {
-        return _react.default.createElement("td", null, row[key].type, ": (", row[key].x, " / ", row[key].y, ")");
+        return _react.default.createElement("td", {
+          key: key + keyIndex
+        }, row[key].type, ": (", row[key].x, " / ", row[key].y, ")");
       }
 
       return _react.default.createElement("td", {
@@ -44593,6 +44597,7 @@ var Filter = function Filter(_ref) {
     disabled: true
   }, "Choose a Location Type"), options.map(function (o) {
     return _react.default.createElement("option", {
+      key: o,
       value: o
     }, o.toUpperCase());
   }));
@@ -44789,18 +44794,19 @@ var TableContainer = function TableContainer() {
   var _useStations = (0, _useStations2.default)(debouncedQuery, type),
       error = _useStations.error,
       loading = _useStations.loading,
-      data = _useStations.data; // if (!data.stations) return 'Loading...'; // Cannot use `loading` because of a bug in @apollo/react-hooks
+      data = _useStations.data;
+
+  if (error) return 'Error: ' + JSON.stringify(error); // Cannot use `loading` to check loading status because of a bug in
+  // @apollo/react-hooks
   // apparently fixed in https://github.com/apollographql/react-apollo/pull/3313
 
-
-  if (error) return 'Error: ' + JSON.stringify(error);
   return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_filter.default, {
     onChange: setType
   }), _react.default.createElement(_search.default, {
     onChange: setQuery
   }), _react.default.createElement("br", null), _react.default.createElement(_table.default, {
     data: data.stations,
-    loading: loading
+    loading: !data.stations
   }));
 };
 

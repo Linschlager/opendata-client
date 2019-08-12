@@ -4,7 +4,7 @@ const Header = ({ keys }) => (
  <thead>
  <tr>
    {
-     keys.map(k => <th>{k}</th>)
+     keys.map(k => <th key={k}>{k}</th>)
    }
  </tr>
  </thead>
@@ -19,7 +19,7 @@ const Body = ({ keys, data }) => (
         keys.map((key, keyIndex) => {
           if (key === "coordinate") {
             return (
-             <td>
+             <td key={key+keyIndex}>
                { row[key].type }: ({ row[key].x } / { row[key].y })
              </td>
             );
