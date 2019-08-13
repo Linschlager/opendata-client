@@ -18,6 +18,8 @@ cd odc-app
 
 `yarn dev` or `npm run dev` to start the local development server
 
+`yarn start` or `npm run start` to start the build process
+
 _The development server is now running on localhost:1234_
 
 ## Known Bugs
