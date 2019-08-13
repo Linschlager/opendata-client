@@ -19,7 +19,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "dev": "parcel serve index.html",
+    "dev": "parcel serve index.html -p 3000",
     "start": "parcel index.html"
   }
 }
